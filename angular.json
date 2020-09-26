@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "realwork"
+    }
+  },
+  "defaultProject": "realwork",
+  "cli": {
+    "analytics": false
+  }
 }
