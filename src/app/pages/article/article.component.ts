@@ -1,15 +1,15 @@
 import { HttpResponse } from '@angular/common/http';
 import {
   Component,
+  DoCheck,
   OnDestroy,
   OnInit,
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
 
-
-
 import { Subscription } from 'rxjs';
+import { IArticles } from 'src/app/models/articles/articles.model';
 import { ArticlesService, EStatusApi } from 'src/app/services/articles.service';
 
 @Component({
@@ -17,9 +17,10 @@ import { ArticlesService, EStatusApi } from 'src/app/services/articles.service';
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.scss']
 })
-export class ArticleComponent implements OnInit, OnDestroy {
+export class ArticleComponent implements OnInit, OnDestroy, OnDestroy, DoCheck {
 
-  subscription$: Subscription;
+  private subscription$: Subscription = new Subscription();
+
   @ViewChild('vcArticle', {
     static: true,
     read: ViewContainerRef,
@@ -39,14 +40,20 @@ export class ArticleComponent implements OnInit, OnDestroy {
     }
   }
 
+  ngDoCheck(): void {
+    // console.log('[Docheck] Articles Component');
+  }
+
   private _subscribeAPIgetArticles(): void {
     this._loadCompoennt(EStatusApi.Pending);
     const listArticles = this.articlesService.getArticles()
       .subscribe(
         (httpResponce) => {
           const { body, status } = httpResponce;
+          const { articles } = body;
+          console.log(articles);
           if (status === 200) {
-            this._loadCompoennt(EStatusApi.Success);
+            this._loadCompoennt(EStatusApi.Success, articles);
           } else {
             this._loadCompoennt(EStatusApi.Error);
           }
@@ -59,11 +66,13 @@ export class ArticleComponent implements OnInit, OnDestroy {
   }
 
   private _loadCompoennt(
-    statusAPI: EStatusApi
+    statusAPI: EStatusApi,
+    articles?: Array<IArticles>
   ): void {
     this.articlesService.loadComponentArticles(
       this.vcArticle,
-      statusAPI
+      statusAPI,
+      articles
     );
   }
 

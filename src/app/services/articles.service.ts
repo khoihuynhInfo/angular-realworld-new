@@ -1,10 +1,16 @@
 import {
+  ComponentFactory,
+  ComponentFactoryResolver,
   Injectable, ViewContainerRef,
 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
+
+import { IArticles } from '../models/articles/articles.model';
+import { ArticleListData } from '../pages/article/article-list/article-list.data.component';
 
 
 export enum EStatusApi {
@@ -17,6 +23,7 @@ export class ArticlesService {
 
   constructor(
     private http: HttpClient,
+    private cfr: ComponentFactoryResolver,
   ) {}
 
   private articleEndpoint = {
@@ -47,7 +54,7 @@ export class ArticlesService {
       '../components/stateless/lost-internet/lost-internet.component'
     );
     const { ArticleListComponent } = await import(
-      '../components/stateful/article-list/article-list.component'
+      '../pages/article/article-list/article-list.component'
     );
 
     vcr.clear();
@@ -64,7 +71,16 @@ export class ArticlesService {
         component = LostInternetComponent;
     }
 
-    return component;
+    const componentRef = vcr.createComponent<ArticleListData>(
+      this.cfr.resolveComponentFactory(component),
+    );
+
+    if (componentRef.componentType === ArticleListComponent) {
+      console.log('start add');
+      componentRef.instance.articleListData = articles;
+
+    }
+    return componentRef;
   }
 
 }

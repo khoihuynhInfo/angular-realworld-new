@@ -1,12 +1,12 @@
 
-interface IAuthor {
+export interface IAuthor {
   username: string;
   bio: null;
   image: string;
   following: boolean;
 }
 
-interface IArticles {
+export interface IArticles {
   title: string;
   slug: string;
   body: string;

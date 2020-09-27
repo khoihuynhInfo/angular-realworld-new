@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,13 +7,16 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './pages/authentication/authen.module';
 import { ArticleComponent } from './pages/article/article.component';
 import { ComponentCommonModule } from './common/common.module';
+import { ArticleModule } from './pages/article/article.module';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ArticleComponent,
+    PageNotFoundComponent,
   ],
   imports: [
+    ArticleModule,
     BrowserModule,
     HttpClientModule,
     AuthModule,
@@ -21,6 +24,9 @@ import { ComponentCommonModule } from './common/common.module';
     ComponentCommonModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
 })
 export class AppModule { }

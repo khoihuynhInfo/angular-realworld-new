@@ -1,16 +1,8 @@
+
 <div class="article-list">
-  <ul>
-    <li>
-      Content 1
-    </li>
-    <li>
-      Content 2
-    </li>
-    <li>
-      Content 3
-    </li>
-    <li>
-      Content 4
+  <ul >
+    <li *ngFor="let item of articles; trackBy:trackBy">
+      {{item.title}}
     </li>
   </ul>
 </div>

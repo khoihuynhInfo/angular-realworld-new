@@ -1,14 +1,23 @@
 @import '../../../STYLE/common.scss';
 
-.loader {
-  border: 16px solid $gray1;
-  border-radius: 50%;
-  border-top: 16px solid $blue1;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
-  animation: spin 2s linear infinite;
+.container-loading {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+
+  &__loader {
+    border: 5px solid $white;
+    border-radius: 50%;
+    border-top: 5px solid $nephritis;
+    width: 40px;
+    height: 40px;
+    -webkit-animation: spin 0.05s linear infinite; /* Safari */
+    animation: spin 0.05s linear infinite;
+  }
 }
+
+
 /* Safari */
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
