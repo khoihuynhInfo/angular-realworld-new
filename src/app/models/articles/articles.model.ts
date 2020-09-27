@@ -3,7 +3,7 @@ interface IAuthor {
   username: string;
   bio: null;
   image: string;
-  following: boolean
+  following: boolean;
 }
 
 interface IArticles {

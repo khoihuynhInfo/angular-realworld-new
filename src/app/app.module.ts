@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './pages/authentication/authen.module';
 import { ArticleComponent } from './pages/article/article.component';
+import { ComponentCommonModule } from './common/common.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ArticleComponent } from './pages/article/article.component';
     HttpClientModule,
     AuthModule,
     AppRoutingModule,
+    ComponentCommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

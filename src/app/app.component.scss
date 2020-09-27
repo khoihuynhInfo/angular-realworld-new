@@ -3,12 +3,12 @@
 .app-component {
   &__nav-bar{
     padding-bottom: 16px;
-    border-bottom: 1px solid silver;
+    border-bottom: 1px solid $silver;
     &__brand-logo {
-      color: $brand-color;
+      color: $nephritis;;
       font-weight: bold;
       font: 30px;
-      border: 1px solid #2ecc71;
+      border: 1px solid $nephritis;;
       margin-right: 20px;
     }
   }
@@ -16,13 +16,13 @@
   &__banner {
     width: 100%;
     height: 200px;
-    background: #2ecc71;
+    background: $nephritis;;
     margin-top: 15px;
     text-align: center;
   }
 
   &__banner--title, &__banner--description  {
-    color: white;
+    color: $white;
     font-size: 40px;
   }
 
