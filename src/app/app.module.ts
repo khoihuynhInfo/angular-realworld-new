@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './pages/authentication/authen.module';
-import { ArticleComponent } from './pages/article/article.component';
 import { ComponentCommonModule } from './common/common.module';
 import { ArticleModule } from './pages/article/article.module';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';

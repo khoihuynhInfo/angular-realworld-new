@@ -26,3 +26,9 @@ https://www.concretepage.com/angular/angular-ngdocheck#:~:text=Angular%20ngDoChe
 
 5/ Why using trackBy in angular
 https://stackoverflow.com/questions/42108217/how-to-use-trackby-with-ngfor
+
+6/ StyleGuide Need to follow
+https://angular.io/guide/styleguide
+
+7/ what is CUSTOM_ELEMENTS_SCHEMA in angular
+https://angular.io/api/core/CUSTOM_ELEMENTS_SCHEMA#:~:text=CUSTOM_ELEMENTS_SCHEMAlink&text=Defines%20a%20schema%20that%20allows,naming%20convention%20for%20custom%20elements.
